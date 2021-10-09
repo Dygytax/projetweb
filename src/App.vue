@@ -1,7 +1,9 @@
 <template>
-  <div id="app">
-    <button v-on:click="Menu">Menu</button>
-  </div>
+      <div class = App>
+        <button class= "buttonMenu" onclick="showMenu()"> Menu </button>
+        <button class= "buttonPanier" onclick="showPanier()"> Panier </button>
+        <button class= "buttonArticles" onclick="showArticles()"> Articles </button>
+      </div>
 </template>
 
 <script>
