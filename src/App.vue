@@ -2,22 +2,35 @@
   <div id="app">
     <div id="nav">
       <router-link to="/">Home</router-link> |
-      <router-link to="/game">About</router-link>
+      <router-link to="/cart">Cart</router-link>
     </div>
-    <router-view/>
+    <router-view :cart="cart" @addGameCart="addGameCart"/>
   </div>
 </template>
 
-<style>
-html{
-  background-color: #191A1D;
-  font-family: poppins,sans-serif;
+<script>
+export default {
+  data() {
+    return {
+      cart: []
+    };
+  },
+  methods: {
+    addGameCart(gameId){
+      this.cart.push(gameId);
+    }
+  }
 }
+</script>
+
+
+<style>
 #app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: white;
+  color: #2c3e50;
 }
 
 #nav {
@@ -26,10 +39,12 @@ html{
 
 #nav a {
   font-weight: bold;
-  color: white;
+  color: #2c3e50;
 }
 
 #nav a.router-link-exact-active {
   color: #42b983;
 }
+
 </style>
+
