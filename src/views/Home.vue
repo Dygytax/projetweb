@@ -57,9 +57,9 @@
     <div class="liste_jeux">
       
       <div v-for="(game, index) in games" :key="index">
-        <div class="jeux">
+        <div class="jeux" @click="$router.push('/game/' + game.id)">
           <p>{{game.name}}</p>
-        </div>
+          </div>
       </div>
     </div>
     <button @click="loadMoreGames()">view more</button>
