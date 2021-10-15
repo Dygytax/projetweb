@@ -9,12 +9,15 @@
 </template>
 
 <style>
+html{
+  background-color: #191A1D;
+  font-family: poppins,sans-serif;
+}
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
+  color: white;
 }
 
 #nav {
@@ -23,7 +26,7 @@
 
 #nav a {
   font-weight: bold;
-  color: #2c3e50;
+  color: white;
 }
 
 #nav a.router-link-exact-active {
