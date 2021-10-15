@@ -70,6 +70,7 @@
 import axios from "axios";
 
 export default {
+  props:["cart"],
   data() {
     return {
       games : '',
@@ -113,6 +114,7 @@ export default {
     }
   },
   async mounted() {
+    console.log(this.cart);
     await axios
     .get('https://api.rawg.io/api/games?key=8f64c448bc4e47458360ccd1213d4d1c&platforms=4,18,186,187')
     .then( response => {

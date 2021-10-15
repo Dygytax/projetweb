@@ -2,11 +2,27 @@
   <div id="app">
     <div id="nav">
       <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+      <router-link to="/cart">Cart</router-link>
     </div>
-    <router-view/>
+    <router-view :cart="cart" @addGameCart="addGameCart"/>
   </div>
 </template>
+
+<script>
+export default {
+  data() {
+    return {
+      cart: []
+    };
+  },
+  methods: {
+    addGameCart(gameId){
+      this.cart.push(gameId);
+    }
+  }
+}
+</script>
+
 
 <style>
 #app {
@@ -29,4 +45,6 @@
 #nav a.router-link-exact-active {
   color: #42b983;
 }
+
 </style>
+
