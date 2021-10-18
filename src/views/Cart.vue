@@ -1,7 +1,7 @@
 <template>
-<div>
+  <div>
     <div v-for="(game, index) in cart" :key="index">
-    {{game.name}}
+      {{game.name}}
     </div>
   </div>
 </template>
@@ -16,7 +16,7 @@ export default {
     };
   },
   methods: {
-    
+
   },
   async mounted() {
   }
