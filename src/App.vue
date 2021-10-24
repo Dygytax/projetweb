@@ -1,10 +1,16 @@
 <template>
   <div id="app">
     <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/cart">Cart</router-link>
+      <router-link class="home" to="/">E-Shop</router-link>
+      <div>
+        <div class="number-cart">
+          {{cart.length}}
+        </div>
+        <router-link class="cartLink" to="/cart"><img class="cart" src="cart.png"/></router-link>
+      </div>
+      
     </div>
-    <router-view :cart="cart" @addGameCart="addGameCart"/>
+    <router-view :cart="cart" :search="search" @rmvGameCart="rmvGameCart" @addGameCart="addGameCart"/>
   </div>
 </template>
 
@@ -12,12 +18,20 @@
 export default {
   data() {
     return {
-      cart: []
+      cart: [],
+      search: ''
     };
   },
   methods: {
-    addGameCart(gameId){
-      this.cart.push(gameId);
+    addGameCart(game){
+      this.cart.push(game);
+    },
+    rmvGameCart(game){
+      console.log("fzaf");
+      for (let index = 0; index < this.cart.length; index++) {
+        if(this.cart[index].id == game.id)
+          this.cart.splice(index,1);
+      }
     }
   }
 }
@@ -28,6 +42,7 @@ export default {
 html{
   background-color: #191A1D;
   font-family: poppins,sans-serif;
+  overflow-y: overlay;
 }
 #app {
 
@@ -38,7 +53,10 @@ html{
 }
 
 #nav {
-  padding: 30px;
+  padding: 20px 45px 30px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 #nav a {
@@ -47,11 +65,23 @@ html{
 }
 
 #nav a.router-link-exact-active {
-  color: #42b983;
+  color: orange;
+  font-size: 1.2em;
 }
 
 a {
   text-decoration: none;
+}
+
+.cart{
+  width: 60px;
+  height: 40px;
+}
+
+.number-cart{
+  transform: translate(-4%, 50%);
+  color: orange;
+  font-size: .9em;
 }
 
 </style>
