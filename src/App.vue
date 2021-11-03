@@ -24,6 +24,7 @@ export default {
   },
   methods: {
     addGameCart(game){
+      game.amount = 1;
       this.cart.push(game);
     },
     rmvGameCart(game){
@@ -42,7 +43,6 @@ export default {
 html{
   background-color: #191A1D;
   font-family: poppins,sans-serif;
-  overflow-y: overlay;
 }
 #app {
 
@@ -65,7 +65,7 @@ html{
 }
 
 #nav a.router-link-exact-active {
-  color: orange;
+  color: #FF6400;
   font-size: 1.2em;
 }
 
@@ -80,7 +80,7 @@ a {
 
 .number-cart{
   transform: translate(-4%, 50%);
-  color: orange;
+  color: #FF6400;
   font-size: .9em;
 }
 
