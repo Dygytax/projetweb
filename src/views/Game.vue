@@ -34,9 +34,9 @@
           <div class="opacitybackground"></div>
           <img class="background" v-bind:src="game.background_image" alt="">
           <div class="displayallinfo">
-            <h1>{{game.name}}</h1>
-            <div class="description">{{game.description_raw}}</div>
-            <div class="info">
+            <h1 class="index3">{{game.name}}</h1>
+            <div class="description index3">{{game.description_raw}}</div>
+            <div class="info index3">
               <div class="containerinfo">
                 <div>Developers</div>
                 <div>{{concatenerGenres(game.developers)}}</div>
@@ -63,11 +63,11 @@
               </div>
               <hr />
             </div>
-            <p class="price">$ {{game.id%40+15}}</p>
-            <div v-if="gameAlreadyInCart() === 0">
+            <p class="price index3">$ {{game.id%40+15}}</p>
+            <div class="index3" v-if="gameAlreadyInCart() === 0">
               <button class="buttonAdd" @click="addToCart(), refresh()">Add to cart</button>
             </div>
-            <div v-else>
+            <div class="index3" v-else>
               <button class="buttonAdd" @click="rmvFromCart(), refresh()">Remove from cart</button>
             </div>
           </div>
@@ -202,13 +202,14 @@ svg{
   top: 50%;
   transform: translate(0,-50%);
 }
+
 .all{
   display: flex;
   align-items: center;
   padding-right: 10%;
   padding-left: 10%;
   justify-content: space-between;
-  height: 80vh;
+  height: 85vh;
 }
 
 .left{
@@ -229,7 +230,6 @@ svg{
   left:0;
   background-size: cover;
   object-fit: cover;
-  z-index: -2;
   border-radius: 10px;
 }
 
@@ -241,7 +241,7 @@ svg{
   height: 100%;
   background-color: black;
   opacity: .7;
-  z-index: -1;
+  z-index: 1;
   border-radius: 10px;
 }
 
@@ -374,7 +374,6 @@ hr{
   max-height: 200px;
   overflow: hidden;
   overflow-y: auto;
-  
 }
 
 
@@ -400,5 +399,9 @@ hr{
   padding-bottom: 10px;
   font-size: 1.2em;
   font-weight: 900;
+}
+
+.index3{
+  z-index:3;
 }
 </style>

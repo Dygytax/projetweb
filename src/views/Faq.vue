@@ -78,14 +78,12 @@ h1 {
 }
 
 .button.show {
-  fill: #3388ac;
   transform: rotate(0);
   transition: 1s;
-  border-color: #3388ac;
 }
 
 .container {
-  min-height: calc(100vh - 4em);
+
   display: flex;
   flex-direction: column;
 }
@@ -120,7 +118,7 @@ h1 {
 }
 
 .titre2 {
-    color:#3388AC;
+    color:black;
   align-self: left;
   font-style: normal;
   font-weight: 600;

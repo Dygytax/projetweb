@@ -279,7 +279,7 @@ h1{
   height: 400px;
   position: relative;
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
   flex-flow: column;
   overflow: hidden;
   border-radius: 10px;
@@ -322,6 +322,8 @@ h1{
   flex-direction: row;
   margin-left: 5%;
   margin-right: 5%;
+  margin-bottom: 1%;
+  margin-top: 50px;
 }
 
 select{
@@ -351,7 +353,9 @@ hr{
 }
 
 .imageJeux{
-  height: 80%;
+  height: 65%;
+  max-height: 65%;
+  min-height: 65%;
 }
 
 img{
@@ -368,7 +372,9 @@ img{
 }
 
 .textGame{
+  height: 30%;
   min-height: 30%;
+  max-height: 30%;
   padding: 10px;
   display: flex;
   flex-direction: column;
@@ -604,7 +610,7 @@ input[type=checkbox]:checked + label:after {
   position: absolute;
   left: 50%;
   top: 0%;
-  padding-top: 40px;
+  padding-top: 10px;
   transform: translate(-50%);
 }
 .input-search{
