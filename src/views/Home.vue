@@ -214,6 +214,9 @@ export default {
         await axios
             .get('https://api.rawg.io/api/games?key=8f64c448bc4e47458360ccd1213d4d1c&platforms='+this.platform+'&genres='+genres+'&ordering='+this.order)
             .then( response => {
+              response.data.results.forEach(element => {
+                element.amount =0;
+              });
               this.games = response.data.results;
               this.next = response.data.next
             })
@@ -222,6 +225,9 @@ export default {
         await axios
             .get('https://api.rawg.io/api/games?key=8f64c448bc4e47458360ccd1213d4d1c&platforms='+this.platform+'&ordering='+this.order)
             .then( response => {
+              response.data.results.forEach(element => {
+                element.amount =0;
+              });
               this.games = response.data.results;
               this.next = response.data.next
             })
@@ -231,6 +237,9 @@ export default {
       await axios
         .get('https://api.rawg.io/api/games?key=8f64c448bc4e47458360ccd1213d4d1c&search='+this.search)
         .then( response => {
+          response.data.results.forEach(element => {
+            element.amount =0;
+          });
           this.games = response.data.results;
           this.next = response.data.next
         })
@@ -238,11 +247,15 @@ export default {
   },
   async mounted() {
     await axios
-        .get('https://api.rawg.io/api/games?key=8f64c448bc4e47458360ccd1213d4d1c&platforms=4,18,186,187')
-        .then( response => {
-          this.games = response.data.results;
-          this.next = response.data.next
-        })
+      .get('https://api.rawg.io/api/games?key=8f64c448bc4e47458360ccd1213d4d1c&platforms=4,18,186,187')
+      .then( response => {
+        response.data.results.forEach(element => {
+          element.amount =0;
+        });
+        this.games = response.data.results;
+        this.next = response.data.next
+      })
+    
   }
 };
 </script>
@@ -483,43 +496,6 @@ img{
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /*checkbox*/
 label{
   display: flex;
@@ -609,7 +585,7 @@ input[type=checkbox]:checked + label:after {
 
 .button-28:hover {
   color: #fff;
-  background-image: linear-gradient(to top, #191a1d, #1c2330, #1d2c44);
+  background-color: #FF6400;
   box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
   transform: translateY(-2px);
 }
@@ -651,13 +627,13 @@ input[type=checkbox]:checked + label:after {
   font-weight: 100;
 }
 .input-search{
-  width: 200px;
+  width: 300px;
   border-radius: 0px;
   background-color: transparent;
   transition: all 500ms cubic-bezier(0, 0.110, 0.35, 2);
 }
 .input-search:focus{
-  width: 300px;
+  width: 400px;
   border-radius: 0px;
   background-color: transparent;
   
@@ -668,7 +644,4 @@ input[type=checkbox]:checked + label:after {
   display: flex;
   border-bottom:1px solid rgba(255,255,255,.5);
 }
-
-
-
 </style>

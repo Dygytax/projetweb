@@ -24,10 +24,11 @@ export default {
   },
   methods: {
     addGameCart(game){
+      game.amount = 1;
       this.cart.push(game);
     },
     rmvGameCart(game){
-      console.log("fzaf");
+      game.amount = 0;
       for (let index = 0; index < this.cart.length; index++) {
         if(this.cart[index].id == game.id)
           this.cart.splice(index,1);
@@ -42,7 +43,6 @@ export default {
 html{
   background-color: #191A1D;
   font-family: poppins,sans-serif;
-  overflow-y: overlay;
 }
 #app {
 
@@ -61,13 +61,10 @@ html{
 
 #nav a {
   font-weight: bold;
-  color: white;
+  font-size: 1.2em;
+  color: #FF6400;
 }
 
-#nav a.router-link-exact-active {
-  color: orange;
-  font-size: 1.2em;
-}
 
 a {
   text-decoration: none;
@@ -80,7 +77,7 @@ a {
 
 .number-cart{
   transform: translate(-4%, 50%);
-  color: orange;
+  color: #FF6400;
   font-size: .9em;
 }
 
