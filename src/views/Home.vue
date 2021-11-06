@@ -322,7 +322,6 @@ h1{
   flex-direction: row;
   margin-left: 5%;
   margin-right: 5%;
-  margin-bottom: 1%;
 }
 
 select{
@@ -492,6 +491,11 @@ img{
   padding-bottom: 7px;
 }
 
+
+
+
+
+
 /*checkbox*/
 label{
   display: flex;
@@ -542,6 +546,8 @@ input[type=checkbox] + label:active:after {
 input[type=checkbox]:checked + label:after {
   color: #fff;
 }
+
+
 
 /*button*/
 .button-28 {
@@ -638,5 +644,4 @@ input[type=checkbox]:checked + label:after {
   display: flex;
   border-bottom:1px solid rgba(255,255,255,.5);
 }
-
 </style>

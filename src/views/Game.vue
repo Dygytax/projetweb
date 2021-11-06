@@ -23,7 +23,7 @@
             </div>
             <div class="screenshots">
               <div  v-for="(screenshot, index) in screenshots" :key="index">
-                <img class="screenshot image" v-bind:src="screenshot.image" alt="" @click="changescreenshot(index)">
+                <img v-if="screenshot!=null" class="screenshot image" v-bind:src="screenshot.image" alt="" @click="changescreenshot(index)">
               </div>
             </div>
           </div>
@@ -63,13 +63,12 @@
               </div>
               <hr />
             </div>
+            <p class="price">$ {{game.id%40+15}}</p>
             <div v-if="gameAlreadyInCart() === 0">
-              <p class="price">$ {{game.id%40+15}}</p>
-              <button class="buttonAdd" @click="addToCart()">Add to cart</button>
+              <button class="buttonAdd" @click="addToCart(), refresh()">Add to cart</button>
             </div>
             <div v-else>
-              <p class="price">$ {{game.id%40+15}}</p>
-              <button class="buttonAdd" @click="rmvFromCart()">Remove from cart</button>
+              <button class="buttonAdd" @click="rmvFromCart(), refresh()">Remove from cart</button>
             </div>
           </div>
         </div>
@@ -139,17 +138,11 @@ export default {
       if(!this.videoOrImage)
         this.videoOrImage = true;
       this.currentscreenshot = index;
-      console.log("currentvideo:"+this.currentvideo);
-      console.log("currentimg:"+this.currentscreenshot);
-      console.log("videoOrImage:"+this.videoOrImage);
     },
     changevideo(index){
       if(this.videoOrImage)
         this.videoOrImage = false;
       this.currentvideo = index;
-      console.log("currentvideo:"+this.currentvideo);
-      console.log("currentimg:"+this.currentscreenshot);
-      console.log("videoOrImage:"+this.videoOrImage);
     },
     gameAlreadyInCart(){
       var bool;
@@ -162,6 +155,10 @@ export default {
       if(bool ==1)
         return 1
       return 0;
+    },
+    refresh(){
+      if(this.videos.length ===0)
+        this.changescreenshot(this.currentscreenshot)
     }
   },
   async mounted() {
