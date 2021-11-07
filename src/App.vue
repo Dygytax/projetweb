@@ -3,9 +3,11 @@
     <div id="nav">
       <router-link class="home" to="/">E-Shop</router-link>
       <div>
-        <div class="number-cart">
-          {{cart.length}}
-        </div>
+        <router-link class="cartLink" to="/cart">
+          <div class="number-cart">
+            {{cart.length}}
+          </div>
+        </router-link>
         <router-link class="cartLink" to="/cart"><img class="cart" src="cart.png"/></router-link>
       </div>
     </div>

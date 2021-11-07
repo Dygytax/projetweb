@@ -12,7 +12,7 @@
         <hr class="toptable" />
         <div v-for="(game, index) in cart" :key="index">
           <div class="product">
-            <div class="item">
+            <div class="item" @click="$router.push('/game/' + game.id)">
               <img class="image" v-bind:src= game.background_image>
               {{game.name}}
             </div>
@@ -75,9 +75,15 @@
           <hr />
         </div>
         <div>
-            <button class="buttonAdd">Checkout</button>
+            <button class="buttonAdd" @click="clearCart()" >Checkout</button>
           </div>
       </div>
+    </div>
+    <div v-if="validatePurchase === true" class="backgroundPurchase"  @click="validatePurchase = false"></div>
+    <div v-if="validatePurchase === true" class="purchaseMade" @click="validatePurchase = false">
+      <h1>Felicitation</h1>
+      <p>Purchase made!</p>
+      <p>You'll receive your order in the next few days</p>
     </div>
   </div>
 </template>
@@ -89,9 +95,15 @@ export default {
   },
   data() {
     return {
+      validatePurchase: false
     };
   },
   methods: {
+    clearCart(){
+      while(this.cart[0] != null)
+        this.rmvFromCart(this.cart[0])
+      this.validatePurchase = true;
+    },
     decrement(index){
       if(this.cart[index].amount > 0)
         this.cart[index].amount--
@@ -204,6 +216,7 @@ export default {
   flex-direction: column;
   width: 300px;
   align-items: center;
+  cursor: pointer;
 }
 
 .svgs{
@@ -391,4 +404,30 @@ hr{
 .totaltext{
   font-weight: bold;
 }
+
+.purchaseMade{
+  background-color: #292c2f;
+  width: 250px;
+  padding-left: 20px;
+  padding-right: 20px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50% ,-50%);
+  z-index: 11;
+  border-radius: 10px;
+  opacity: 1;
+}
+.backgroundPurchase{
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  opacity: 0.4;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
+}
+
+
 </style>

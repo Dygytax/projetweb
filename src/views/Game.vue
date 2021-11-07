@@ -209,11 +209,12 @@ svg{
   padding-right: 10%;
   padding-left: 10%;
   justify-content: space-between;
-  height: 85vh;
+  min-height: 85vh;
 }
 
 .left{
   width: 50%;
+  margin-bottom: 20px;
 }
 
 .right{
@@ -295,7 +296,12 @@ svg{
   width: 960px;
   height: 540px;
 }
-
+@media screen and (max-width: 1700px) {
+  .currentscreenshot{
+    width: 640px;
+    height: 360px;
+  }
+}
 .video{
   width: 500px;
   height: 500px;
