@@ -27,6 +27,9 @@
 
 <script>
 export default {
+  created () {
+    document.title = "E-shop";
+  },
   data() {
     return {
       cart: [],
