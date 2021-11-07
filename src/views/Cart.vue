@@ -101,20 +101,24 @@ export default {
     };
   },
   methods: {
+    //Vider le panier
     clearCart(){
       while(this.cart[0] != null)
         this.rmvFromCart(this.cart[0])
       this.validatePurchase = true;
     },
+    //Décrémente les élements du panier
     decrement(index){
       if(this.cart[index].amount > 0)
         this.cart[index].amount--
       if(this.cart[index].amount == 0)
         this.rmvFromCart(this.cart[index])
     },
+    //Retirer un élement du panier
     rmvFromCart(game){
       this.$emit('rmvGameCart', game)
     },
+    //Calculer le prix total du panier
     total(){
       var total = 0;
       this.cart.forEach(element => {
@@ -122,15 +126,18 @@ export default {
       });
       return total;
     },
+    //Calculer la tax du total du panier
     tax(){
       return this.arrondir(this.total()*(3/100));
     },
+    //Somme de la tax et du total
     totalwithtax(){
       let res=0;
       res += parseFloat(this.tax(), 10);
       res += parseFloat(this.total());
       return res;
     },
+    //Arrondir les prix
     arrondir(number){
       let res = number.toFixed(2);
       res = res.slice(0)

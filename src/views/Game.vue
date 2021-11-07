@@ -101,12 +101,15 @@ export default {
     },
   },
   methods: {
+    //Ajouter un élement au panier
     addToCart(){
       this.$emit('addGameCart', this.game)
     },
+    //Retirer un élement du panier
     rmvFromCart(){
       this.$emit('rmvGameCart', this.game)
     },
+    //Mettre chaque genres dans un seul string
     concatenerGenres(genre){
       if(genre[0]==null)
         return '';
@@ -118,6 +121,7 @@ export default {
       }
       return str;
     },
+    //Mettre chaque platforms dans un seul string
     concatenerPlatforms(platforms){
       if(platforms[0]==null)
         return '';
@@ -135,16 +139,19 @@ export default {
       str = str.substring(1);
       return str;
     },
+    //Change l'image afficher
     changescreenshot(index){
       if(!this.videoOrImage)
         this.videoOrImage = true;
       this.currentscreenshot = index;
     },
+    //Change la video afficher
     changevideo(index){
       if(this.videoOrImage)
         this.videoOrImage = false;
       this.currentvideo = index;
     },
+    //Vérifie si le jeux est déjà dans le panier
     gameAlreadyInCart(){
       var bool;
       this.cart.forEach(element => {
@@ -163,17 +170,20 @@ export default {
     }
   },
   async mounted() {
+    //Requête pour obtenir les informations du jeux
     await axios
       .get('https://api.rawg.io/api/games/'+this.$route.params.id+'?key=8f64c448bc4e47458360ccd1213d4d1c&platforms=4,18,186,187')
       .then( response => {
         response.data.amount=0;
         this.game = response.data;
       })
+    //Requête pour obtenir les images du jeux
     await axios
       .get('https://api.rawg.io/api/games/'+this.$route.params.id+'/screenshots?key=8f64c448bc4e47458360ccd1213d4d1c')
       .then( response => {
         this.screenshots = response.data.results;
       })
+    //Requête pour obtenir les video du jeux
     await axios
       .get('https://api.rawg.io/api/games/'+this.$route.params.id+'/movies?key=8f64c448bc4e47458360ccd1213d4d1c')
       .then( response => {

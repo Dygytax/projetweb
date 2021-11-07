@@ -162,6 +162,7 @@ export default {
     }
   },
   methods: {
+    //Ajoute 20 jeux supplémentaire au tableau de jeux
     async loadMoreGames(){
       axios
           .get(this.next)
@@ -170,17 +171,21 @@ export default {
             this.next = response.data.next;
           })
     },
+    //Ajouter un élement au panier
     addToCart(game){
       this.$emit('addGameCart', game)
     },
+    //Retire un élement au panier
     rmvFromCart(game){
       this.$emit('rmvGameCart', game)
     },
+    //Arrondir les prix
     arrondir(rating){
       let res = rating.toFixed(2);
       res = res.slice(0, 3)
       return res;
     },
+    //Mettre chaque genres dans un seul string
     concatenerGenres(genre){
       if(genre[0]==null)
         return '';
@@ -192,6 +197,7 @@ export default {
       }
       return str;
     },
+    //Vérifie si le jeux est déjà dans le panier
     gameAlreadyInCart(name){
       var bool;
       this.cart.forEach(element => {
@@ -206,11 +212,12 @@ export default {
     },
     async refresh(){
       if(this.genre[0] != null){
-        let genres = this.genre[0];//Transforme le tableau d'id de genre en un string
+        let genres = this.genre[0];
+        //Transforme le tableau d'id de genre en un string
         for (let j = 1; j < this.genre.length; j++) {
           genres += ","+this.genre[j];
         }
-
+        //Requête pour obtenir les jeux par filtré par platforms, genre et order by
         await axios
             .get('https://api.rawg.io/api/games?key=8f64c448bc4e47458360ccd1213d4d1c&platforms='+this.platform+'&genres='+genres+'&ordering='+this.order)
             .then( response => {
@@ -222,6 +229,7 @@ export default {
             })
       }
       else{
+        //Requête pour obtenir les jeux par filtré par platforms et order by
         await axios
             .get('https://api.rawg.io/api/games?key=8f64c448bc4e47458360ccd1213d4d1c&platforms='+this.platform+'&ordering='+this.order)
             .then( response => {
@@ -234,6 +242,7 @@ export default {
       }
     },
     async research(){
+      //Requête pour obtenir les jeux recherché avec un input
       await axios
         .get('https://api.rawg.io/api/games?key=8f64c448bc4e47458360ccd1213d4d1c&search='+this.search)
         .then( response => {
@@ -246,6 +255,7 @@ export default {
     }
   },
   async mounted() {
+    //Requête pour obtenir les jeux
     await axios
       .get('https://api.rawg.io/api/games?key=8f64c448bc4e47458360ccd1213d4d1c&platforms=4,18,186,187')
       .then( response => {
