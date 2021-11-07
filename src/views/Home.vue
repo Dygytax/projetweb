@@ -97,7 +97,7 @@
 
       <div class="right">
         <div class="liste_jeux">
-          <div v-for="(game, index) in games" :key="index">
+          <div class="block_jeux" v-for="(game, index) in games" :key="index">
             <div class="jeux">
               <div class="imageJeux" @click="$router.push('/game/' + game.id)">
                 <img  v-bind:src= game.background_image>
@@ -285,7 +285,6 @@ h1{
   border-radius: 10px;
   cursor: pointer;
   text-align: left;
-
   /* From https://css.glass */
   background-image: linear-gradient(to top, #191a1d, #1c2330, #1d2c44, #1a355a, #0e3f70);
   border-radius: 16px;
@@ -293,6 +292,16 @@ h1{
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
   border: 1px solid #121212;;
+}
+
+.block_jeux:hover{
+
+  transform: scale(1.04); 
+}
+
+.block_jeux{
+  transition: 0.5s;
+
 }
 
 .jeux p{
