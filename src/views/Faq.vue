@@ -2,7 +2,7 @@
   <div class="container">
     <h1>Questions fréquentes</h1>
     <p class="text text-main">
-      Ici vous pourrez voir différentes questions que l'on nous pose
+      Ici vous pourrez voir les différentes questions que l'on nous posent
       fréquemmment.<br />
     </p>
 
@@ -44,19 +44,19 @@ export default {
         {
           title: "Comment ça marche ?",
           description:
-            "Tout se passe dans la page map. Ici le manager peut ajouter, modifier ou bien supprimer un ascenseur. De plus, il peut observer l'état de l'ascenseur (maintenance, réparation) sur la map.",
+            "Tout se passe dans la première page E-Shop. Ici l'utilisateur peut voir les différents jeux présents dans notre API, consulter les jeux en détail ou bien les ajouter à son panier. De plus, lorsqu'il consulte en détail les jeux, l'utilisateur peut voir des screenshots du jeu, des vidéos du jeu ainsi que les genres associés au jeu qu'il cherche.",
           show: false,
         },
         {
           title: "Quel est le but de notre application ?",
           description:
-            "Le but de notre application est de permettre de faciliter la gestion des ascenseurs entre les différents rôle (manager, technicien, réparateur) afin de veiller à ce que les ascenseurs restent le moins longtemps en panne. ",
+            "Le but de notre site web est de permettre à nos utilisateurs de s'informer sur les différents jeux vidéos présentés mais aussi de pouvoir les ajouter à leurs paniers afin de les acheter directement sur notre site. Le site que nous proposons est une alternative aux sites de vente de jeux vidéos classiques car nous disposons de plus d'informations sur les jeux et cela permet à l'utilisateur d'être mieux informé ",
           show: false,
         },
         {
           title: "Pourquoi nous ?",
           description:
-            "Nous choisir serait la meilleure option pour vous. En effet, nous vous proposons différentes offres afin que tout le monde puisse trouver son son compte. De plus si vous avez un soucis, il suffit de nous contacter et nous ferons en sorte de régler votre problème le plus rapidement possible ",
+            "Nous choisir serait la meilleure option pour vous. En effet, le site que nous vous proposons est simple d'accès, simple d'utilité et permet à nos utilisateurs de s'informer beaucoup plus sur les jeux qu'ils veulent consulter par rapport aux autres sites de vente classique. De plus, dans notre site, nous proposons à nos utilisateurs des jeux moins connus du grand public ainsi que des jeux indépendants. .",
           show: false,
         },
       ],
@@ -118,7 +118,7 @@ h1 {
 }
 
 .titre2 {
-    color:black;
+  color:black;
   align-self: left;
   font-style: normal;
   font-weight: 600;
