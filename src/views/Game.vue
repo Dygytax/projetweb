@@ -37,6 +37,7 @@
             <h1 class="index3">{{game.name}}</h1>
             <div class="description index3">{{game.description_raw}}</div>
             <div class="info index3">
+              <hr />
               <div class="containerinfo">
                 <div>Developers</div>
                 <div>{{concatenerGenres(game.developers)}}</div>
@@ -205,22 +206,25 @@ svg{
 
 .all{
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
-  padding-right: 10%;
-  padding-left: 10%;
-  justify-content: space-between;
+  justify-content: space-evenly;
   min-height: 85vh;
 }
 
 .left{
-  width: 50%;
+  width: 60%;
+  min-width: 700px;
   margin-bottom: 20px;
 }
 
 .right{
   width: 30%;
+  max-width: 400px;
+  min-width: 350px;
   height: 75vh;
   position: relative;
+  margin-bottom: 20px;
 }
 
 .background{
@@ -254,7 +258,7 @@ svg{
 
 .selectscreenshot{
   margin-top: 20px;
-  width: 100%;
+  width: 70%;
   display: flex;
   overflow: hidden;
   overflow-x: auto;
@@ -296,12 +300,44 @@ svg{
   width: 960px;
   height: 540px;
 }
+
 @media screen and (max-width: 1700px) {
   .currentscreenshot{
     width: 640px;
     height: 360px;
   }
+  .all{
+    justify-content: center;
+  }
 }
+
+@media screen and (max-width: 700px) {
+  .currentscreenshot{
+    width: 490px;
+    height: 276px;
+  }
+  .selectscreenshot{
+    width: 50%;
+  }
+  .screenshot{
+    width: 98px;
+    height: 55px;
+  }
+  .left{
+    min-width: none;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .currentscreenshot{
+    width: 330px;
+    height: 190px;
+  }
+  .selectscreenshot{
+    width: 40%;
+  }
+}
+
 .video{
   width: 500px;
   height: 500px;
@@ -332,6 +368,7 @@ svg{
 .buttonAdd {
   margin-left: auto;
   margin-right: auto;
+  margin-bottom: 5px;
   width: 200px;
   height: 40px;
   appearance: none;

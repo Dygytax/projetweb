@@ -60,6 +60,7 @@ body {
   display: flex;
   flex-direction: row;
   justify-content: center;
+  flex-wrap: wrap;
 }
 
 html {
@@ -74,6 +75,7 @@ html {
   width: 20%;
   margin-bottom: 16px;
   padding: 0 8px;
+  min-width: 280px;
 }
 
 .card {
@@ -90,10 +92,17 @@ html {
 
 .container {
   padding: 0 16px;
+  padding-bottom: 10px;
+  height: 350px;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
 }
+
 a{
   color: white;
 }
+
 .title {
   color: grey;
 }
@@ -107,7 +116,7 @@ a{
   background-color: #000;
   text-align: center;
   cursor: pointer;
-  width: 100%;
+  width: 90%;
 }
 
 .button:hover {

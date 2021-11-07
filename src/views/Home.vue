@@ -308,18 +308,34 @@ h1{
   margin: 0;
 }
 
+@media screen and (max-width: 700px) {
+  .all{
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .filterCheckbox{
+    height: 30px;
+  }
+  .liste_jeux{
+    margin-top: 20px;
+  }
+  .wrap-input{
+    margin-top: 80px;
+  }
+}
+
 .filter{
-  width: 20%;
-  box-sizing: border-box;
+  width: 15%;
+  min-width: 250px;
   padding: 32px;
   background: #121212;
   margin-bottom: auto;
   border-radius: 10px;
+  margin-top: 10px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   text-align: left;
-
 }
 
 .right{

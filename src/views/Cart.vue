@@ -1,6 +1,5 @@
 <template>
   <div>
-    <hr class="top" />
     <div class="all">
       <div class="left">
         <div class="entete" >
@@ -41,7 +40,7 @@
         <div class="containercreditcard">
           <div class="creditcardfirstdiv">
             <p>Card Number</p>
-            <input type="text" placeholder=".... .... .... ...." class="number">
+            <input type="text" placeholder=". . . .   . . . .   . . . .   . . . ." class="number">
           </div>
           <div class="creditcardseconddiv">
             <p>Name</p>
@@ -54,9 +53,12 @@
             </div>
             <div class="divcvv">
               <p>CVV</p>
-              <input type="text" placeholder="..." class="cvv">
+              <input type="text" placeholder=". . ." class="cvv">
             </div>
           </div>
+          <hr />
+          <p class="deliveryText">Delivery Address</p>
+          <input type="text" placeholder="04 street London England" class="deliveryInput">
           <hr />
         </div>
         <div class="calcultotal">
@@ -169,17 +171,18 @@ export default {
   display: flex;
   flex-direction: row;
   align-items: center;
+  flex-wrap: wrap;
 }
 
 .left{
   margin-top: 30px;
-  width: 80%;
+  width: 60%;
+  min-width: 700px;
   height: 80vh;
   overflow: hidden;
   overflow-y: scroll;
   padding-right: 5vw;
   padding-left: 5vw;
-
 }
 
 .left::-webkit-scrollbar {
@@ -193,12 +196,33 @@ export default {
 }
 
 .right{
-  width: 30%;
-  margin-left: 5vw;
-  margin-right: 5vw;
+  margin-left: auto;
+  margin-right: auto;
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+@media screen and (max-width: 800px) {
+  .image{
+    display: none;
+  }
+  .item{
+    max-width: 100px;
+  }
+  .left{
+    min-width: 100%;
+    max-width: 100%;
+    padding-left: 10px;
+    padding-right: 10px;
+    height: auto;
+  }
+  .name{
+    max-width: 100px;
+  }
+  .middle{
+    display: none;
+  }
 }
 
 .image{
@@ -295,6 +319,11 @@ svg{
   text-align: left;
   justify-content: space-between;
   width: 100%;
+}
+
+.deliveryAddress{
+  text-align: left;
+  width: 300px;
 }
 
 .cvv{
@@ -429,5 +458,12 @@ hr{
   z-index: 10;
 }
 
+.deliveryInput{
+  width: 100%;
+}
 
+.deliveryText{
+  margin-top: 0;
+  text-align: left;
+}
 </style>
